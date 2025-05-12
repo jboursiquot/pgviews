@@ -1,4 +1,4 @@
-.PHONY: help test bench
+.PHONY: help test bench bench_view_none bench_view_plain bench_view_materialized bench_all
 
 default: help
 
