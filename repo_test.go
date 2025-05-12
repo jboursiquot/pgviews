@@ -310,7 +310,7 @@ func BenchmarkGetCategorySales(b *testing.B) {
 	// Reset timer to exclude setup time
 	b.ResetTimer()
 
-	for b.Loop() {
+	for i := 0; i < b.N; i++ {
 		start := time.Now()
 		_, err := repo.GetCategorySales(ctx, category, daysInPast)
 		duration := time.Since(start)
@@ -357,7 +357,7 @@ func BenchmarkGetCategorySalesFromView(b *testing.B) {
 
 	// Reset timer to exclude setup time
 
-	for b.Loop() {
+	for i := 0; i < b.N; i++ {
 		start := time.Now()
 		_, err := repo.GetCategorySalesFromView(ctx, category, daysInPast)
 		duration := time.Since(start)
@@ -409,7 +409,7 @@ func BenchmarkGetCategorySalesFromMaterializedView(b *testing.B) {
 
 	// Reset timer to exclude setup time
 
-	for b.Loop() {
+	for i := 0; i < b.N; i++ {
 		start := time.Now()
 		_, err := repo.GetCategorySalesFromMaterializedView(ctx, category, daysInPast)
 		duration := time.Since(start)
